@@ -1,0 +1,121 @@
+openapi: "3.0.2"
+
+info:
+  title: "AnlysisReading API"
+  description: "**API**, позволяющее получить содержание **PDF**-документа с анализами в формате `JSON`."
+  version: "1.0.0"
+  
+servers:
+  - url: "Вставьте сюда адрес сервера"
+  
+paths:
+  api/v1/analysis/list:
+    get:
+      tags: 
+        - "Запросы"
+      summary: "Возвращает список уже загруженных анализов"
+      description: "Возвращает **массив** уже загруженных на обработку анализов. Можно использовать для того, чтобы получить `id` своих анализов и после по нему запросить результат **прочтения** файла с этими анализами."
+      operationId: "AnalysisList"
+      responses: 
+        200:
+          description: "Успешный запрос. Получилось запросить данные с сервера"
+          content:
+            application/json:
+              schema:
+                title: Sample
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: "ID загруженного анализа"
+                    patient_name:
+                      type: string
+                      description: "Имя пациента"
+                    date_uploaded:
+                      type: string
+                      description: "Время загрузки анализов"
+                    processing_completed:
+                      type: boolean
+                      description: "Выполненен ли процесс обработки файла с анализами"
+              example:
+                - id: 1
+                  patient_name: "Иванов Иван Иванович"
+                  date_uploaded: "2021-12-20T16:12:26.518660+03:00"
+                  processing_completed: True
+                - id: 2
+                  patient_name: "Егоров Егор Егорович"
+                  date_uploaded: "2021-12-20T16:14:53.434560+03:00"
+                  processing_completed: False
+      
+  api/v1/analysis/{id}:
+    get:
+      tags:
+        - "Запросы"
+      summary: "Возвращает определенный анализ по его id"
+      description: "Возвращает экземпляр анализов в качестве словаря по его `id`. Содержит в себе все сведения, что и при запросе `/list`, а также результат обработки файла с анализами"
+      operationId: "AnalysisByID"
+      parameters:
+        - name: id
+          in: path
+          required: True
+          description: "**ID анализа**. *Например: 8*. Представляет собой порядковый номер в списке всех загруженных на сервер анализов."
+          schema:
+            type: number
+      responses: 
+        200:
+          description: "Успешный запрос. Получилось запросить данные с сервера"
+          content:
+            application/json:
+              schema:
+                title: Sample
+                type: object
+                properties:
+                  id:
+                    type: number
+                    description: "ID загруженных анализов"
+                  patient_name:
+                    type: string
+                    description: "Имя пациента"
+                  date_uploaded:
+                    type: string
+                    description: "Время загрузки анализов"
+                  processing_completed:
+                    type: boolean
+                    description: "Выполненен ли процесс обработки файла с анализами"
+                  processing_result:
+                    type: string
+                    description: "Результат считывания данных из файла с анализами"
+              example:
+                id: 1
+                patient_name: "Иванов Иван Иванович"
+                date_uploaded: "2021-12-20T16:12:26.518660+03:00"
+                processing_completed: True
+                processing_result: "Какие-то данные о анализах из какой-то лаборатории..."
+                
+  api/v1/analysis/add:
+    post:
+      tags:
+        - "Запросы"
+      summary: "Отправляет анализы на сервер"
+      description: "Позволяет отправить **PDF**-файл с анализами на сервер для последующего считывания информации на нем."
+      operationId: "SendAnalysis"
+      requestBody:
+        required: True
+        content:
+          application/pdf:
+            schema:
+              type: string
+              format: binary
+      responses: 
+        201:
+          description: "Успешный запрос. Данные были отправлены на сервер."
+  
+tags:
+- name: "Запросы"
+  description: "Все возможные запросы к `API`"
+  
+externalDocs:
+  description: Документация по настройке API на сервере
+  url: https://openweathermap.org/api
