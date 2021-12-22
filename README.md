@@ -15,11 +15,13 @@
   - Добавить Ghostscript в PATH
   - Установить все необходимые пакеты из requirements.txt
   - Перейти в директорию SKB-LAB-Project\restapi (можно сделать как через терминал операционной ситсемы, так и среды разработки)
-  - `python manage.py migrate` - запускаем миграцию БД
-  - `python manage.py makemigrations` - создаем файлы миграций для БД
-  - `python manage.py migrate` - заносим новые миграции в БД
-  - `python manage.py createsuperuser` - регистрируем пользователя для доступа к админке
-  - `python manage.py runserver` - запускаем локальный сервер
+  - Ввести поочередно следующие команды:
+    - `python manage.py migrate` - запускаем миграцию БД
+    - `python manage.py makemigrations` - создаем файлы миграций для БД
+    - `python manage.py migrate` - заносим новые миграции в БД
+    - `python manage.py createsuperuser` - регистрируем пользователя для доступа к админке
+      - Пройти регистрацию
+    - `python manage.py runserver` - запускаем локальный сервер
 
 ### Способы обращения к API:
   Возможные запросы описаны в [документации](openapi.yaml) (можно открыть в Swagger UI)
