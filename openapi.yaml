@@ -9,7 +9,7 @@ servers:
   - url: "Вставьте сюда адрес сервера"
   
 paths:
-  api/v1/analysis/list:
+  /api/v1/analysis/list:
     get:
       tags: 
         - "Запросы"
@@ -49,7 +49,7 @@ paths:
                   date_uploaded: "2021-12-20T16:14:53.434560+03:00"
                   processing_completed: False
       
-  api/v1/analysis/{id}:
+  /api/v1/analysis/{id}:
     get:
       tags:
         - "Запросы"
@@ -94,7 +94,7 @@ paths:
                 processing_completed: True
                 processing_result: "Какие-то данные о анализах из какой-то лаборатории..."
                 
-  api/v1/analysis/add:
+  /api/v1/analysis/add:
     post:
       tags:
         - "Запросы"
