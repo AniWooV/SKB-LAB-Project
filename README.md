@@ -24,4 +24,4 @@
     - `python manage.py runserver` - запускаем локальный сервер
 
 ### Способы обращения к API:
-  Возможные запросы описаны в [документации](openapi.yaml) (можно открыть в Swagger UI)
+  Возможные запросы описаны в [документации](https://app.swaggerhub.com/apis-docs/AniWooV/skb-lab-api/1.0.0#/)
