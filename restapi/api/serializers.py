@@ -63,7 +63,7 @@ class AnalysisDetailSerializer(serializers.ModelSerializer):
 def parse_analysis(analysis):
     path = analysis.analysis.path.replace('\\', '\\\\')
 
-    analysis.processing_result = str(get_parsed_analysis_with_camelot(path))
+    analysis.processing_result = str(parse_pdf(path))
     analysis.processing_completed = True
 
     analysis.save()
