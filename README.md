@@ -13,6 +13,9 @@
   - Установить Ghostscript
     - Cкачать установщик на Windows можно [здесь](https://ghostscript.com/releases/gsdnld.html)
   - Добавить Ghostscript в PATH
+  - Установить Poppler
+    - Cкачать установщик на Windows можно [здесь](https://github.com/oschwartz10612/poppler-windows/releases/)
+  - Добавить Poppler bin/папку в PATH 
   - Установить все необходимые пакеты из [requirements.txt](requirements.txt)
   - Перейти в директорию SKB-LAB-Project\restapi (можно сделать как через терминал операционной ситсемы, так и среды разработки)
   - Ввести поочередно следующие команды:
