@@ -95,7 +95,13 @@ def get_text(img_org):
     text_list.remove(" ")
   while("  " in text_list) :
     text_list.remove("  ")
-  return(text_list)
+    
+  res = []
+  for val in text_list:
+    pars = val.split(" ")
+    res.append([pars[0],pars[1], pars[2]])
+
+  return res
 
 def get_mask(mask):
   mask = tf.argmax(mask, axis=-1)
