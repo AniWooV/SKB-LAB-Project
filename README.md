@@ -15,7 +15,10 @@
   - Добавить Ghostscript в PATH
   - Установить Poppler
     - Cкачать установщик на Windows можно [здесь](https://github.com/oschwartz10612/poppler-windows/releases/)
-  - Добавить Poppler bin/папку в PATH 
+  - Добавить Poppler bin/папку в PATH
+  - Установить Tesseract
+    - Cкачать установщик на Windows можно [здесь](https://github.com/UB-Mannheim/tesseract/wiki)
+  - Добавить путь к Tesseract в файле main_parsers.py
   - Установить все необходимые пакеты из [requirements.txt](requirements.txt)
   - Перейти в директорию SKB-LAB-Project\restapi (можно сделать как через терминал операционной системы, так и среды разработки)
   - Ввести поочередно следующие команды:
